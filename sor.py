@@ -119,13 +119,8 @@ while (error):
         sumatoria = 0
         for j in range(n):
             if (i != j):
-                print("VALOR DE LA MATRIZ: ", matrix[i][j])
-                print("VALOR DE LA RESPUESTA: ", respuestas[j])
-                print("VALOR DE LA TERMINO INDEPENDIENTE: ", terminosIndependientes[j])
                 sumatoria += matrix[i][j] * respuestas[j]
         sumatoria+= terminosIndependientes[i]
-        print("SUMATORIA: ", sumatoria)
-        print()
         temp = w*(sumatoria) + (1-w)*respuestas[i]
 
         respuestas[i] = temp
@@ -134,9 +129,6 @@ while (error):
 
     for i in range(n):
         error += abs(respuestas[i] - respuestasAnteriores[i])
-
-    print("RESPUESTAS ITERACIÓN: ", respuestas)
-    print("ERROR FINAL: ", error)
 
     if (error < 0.000001):
         break
