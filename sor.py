@@ -55,9 +55,12 @@ def cambioDeFilas(matriz):
             print("Matriz cambiada:")
             imprimirMatriz(matrizTemp)
             if (esDiagonalDominante(matrizTemp)):
-                return matrizTemp
+              return matrizTemp
             else:
-                pass
+              filaTemp = matrizTemp[i]
+              matrizTemp[i] = matrizTemp[j]
+              matrizTemp[j] = filaTemp
+    return matriz
 
 
 #Comienzo del programa
@@ -99,8 +102,14 @@ if (esDiagonalDominante(matrix)):
 else:
     print("La matriz no es diagonal dominante")
     print("Realizando cambio de filas...")
+    matrix = cambioDeFilas(matrix)
+    if(esDiagonalDominante(matrix)): 
+      print("Se realizó el cambio de filas exitosamente. Continuando algoritmo...")
+    else:
+      print("A+un con el cambio de filas, la matriz no se puede resolver")
+      exit()
 
-    exit()
+
 
 #Despejar cada una de las variables
 #Transformar también el vector de valores independientes
